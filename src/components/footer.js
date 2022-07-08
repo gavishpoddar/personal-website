@@ -77,13 +77,13 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    fetch('https://api.github.com/repos/bchiang7/v4')
+    fetch('https://api.github.com/users/gavishpoddar')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
         setGitHubInfo({
-          stars: stargazers_count,
-          forks: forks_count,
+          public_repos: public_repos,
+          followers: followers,
         });
       })
       .catch(e => console.error(e));
@@ -108,15 +108,15 @@ const Footer = () => {
         <a href="https://github.com/bchiang7/v4">
           <div>Designed &amp; Built by Brittany Chiang</div>
 
-          {githubInfo.stars && githubInfo.forks && (
+          {githubInfo.public_repos && githubInfo.followers && (
             <div className="github-stats">
               <span>
                 <Icon name="Star" />
-                <span>{githubInfo.stars.toLocaleString()}</span>
+                <span>{githubInfo.public_repos.toLocaleString()}</span>
               </span>
               <span>
                 <Icon name="Fork" />
-                <span>{githubInfo.forks.toLocaleString()}</span>
+                <span>{githubInfo.followers.toLocaleString()}</span>
               </span>
             </div>
           )}
