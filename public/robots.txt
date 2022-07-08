@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://gavishpoddar.com/sitemap.xml
-Host: https://gavishpoddar.com
